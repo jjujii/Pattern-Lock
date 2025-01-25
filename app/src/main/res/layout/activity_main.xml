@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.patternlockviewtest2.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SET PATTERN"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#333639"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <com.andrognito.patternlockview.PatternLockView
+            android:id="@+id/pattern_lock_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSetPattern1"
+        android:text="SET PATTERN one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#333639"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <com.andrognito.patternlockview.PatternLockView
+            android:id="@+id/pattern_lock_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSetPattern2"
+        android:text="SET PATTERN two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
