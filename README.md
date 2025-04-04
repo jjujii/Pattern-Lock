@@ -5,7 +5,7 @@ an implementation of a double pattern lock for Android.
 
 ## Acknowledgments
 This project was inspired by and uses code from the following research:
--https://arxiv.org/abs/2008.10681
+- https://arxiv.org/abs/2008.10681
 
 This project was inspired by and uses code from the following repository:
 - https://github.com/aritraroy/PatternLockView
