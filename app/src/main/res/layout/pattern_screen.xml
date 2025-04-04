@@ -1,23 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="#333639"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.andrognito.patternlockview.PatternLockView
-        android:id="@+id/pattern_lock_view1"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.andrognito.patternlockview.PatternLockView
+            android:id="@+id/pattern_lock_view1"
+            android:layout_width="match_parent"
+            android:layout_height="409dp"
+            android:visibility="visible" />
+
+        <com.andrognito.patternlockview.PatternLockView
+            android:id="@+id/pattern_lock_view2"
+            android:layout_width="match_parent"
+            android:layout_height="403dp" />
+    </FrameLayout>
+    <Button
+        android:id="@+id/btn_help"
+        android:text="Help"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"/>
 
-    <com.andrognito.patternlockview.PatternLockView
-        android:id="@+id/pattern_lock_view2"
+
+    <ImageView
+        android:id="@+id/help_background1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="126dp"
+        android:alpha="0.5"
+        android:src="@drawable/abstract_organic_shapes_background"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/help_background2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:src="@drawable/streetlights"
         android:visibility="gone"/>
 
 
 
-</FrameLayout>
+</LinearLayout>
 

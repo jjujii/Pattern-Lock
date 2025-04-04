@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,10 @@ import io.paperdb.Paper;
 public final class MainActivity extends AppCompatActivity {
     PatternLockView mPatternLockView1;
     PatternLockView mPatternLockView2;
+    ImageView background1;
+    ImageView background2;
+    ImageView help_background1;
+    ImageView help_background2;
     String first_pattern = "";
     String second_pattern = "";
     String first_pattern_key = "first_pattern_code";
@@ -32,13 +37,30 @@ public final class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Paper.init(this);
-       String first_pattern_saved = Paper.book().read(first_pattern_key);
+        String first_pattern_saved = Paper.book().read(first_pattern_key);
         String second_pattern_saved = Paper.book().read(second_pattern_key);
         if ((first_pattern_saved != null && !first_pattern_saved.equals("null"))
                 && (second_pattern_saved != null && !second_pattern_saved.equals("null"))) {
             setContentView(R.layout.pattern_screen);
             mPatternLockView1 = (PatternLockView) findViewById(R.id.pattern_lock_view1);
             mPatternLockView2 = (PatternLockView) findViewById(R.id.pattern_lock_view2);
+            Button btnHelp = (Button) findViewById(R.id.btn_help);
+            help_background1 = (android.widget.ImageView) findViewById(R.id.help_background1);
+            help_background2 = (android.widget.ImageView) findViewById(R.id.help_background2);
+
+            mPatternLockView2.setVisibility(View.GONE);
+
+            btnHelp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mPatternLockView1.getVisibility() == View.VISIBLE) {
+                        help_background1.setVisibility(View.VISIBLE);
+                        help_background2.setVisibility(View.GONE);
+                    } else {
+                        help_background1.setVisibility(View.GONE);
+                        help_background2.setVisibility(View.VISIBLE);
+                    }
+                }});
             mPatternLockView1.addPatternLockListener(new PatternLockViewListener() {
                 @Override
                 public void onStarted() {
@@ -57,6 +79,7 @@ public final class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,"Pattern is correct ",Toast.LENGTH_SHORT).show();
                         mPatternLockView1.setVisibility(View.GONE);
                         mPatternLockView2.setVisibility(View.VISIBLE);
+                        help_background1.setVisibility(View.GONE);
                     }else{
                         Toast.makeText(MainActivity.this,"Pattern is incorrect! ",Toast.LENGTH_SHORT).show();
                     }
@@ -72,6 +95,7 @@ public final class MainActivity extends AppCompatActivity {
             mPatternLockView2.addPatternLockListener(new PatternLockViewListener() {
                 @Override
                 public void onStarted() {
+                    //btnHelp.setVisibility(View.VISIBLE);
 
                 }
 
@@ -102,6 +126,8 @@ public final class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mPatternLockView1 = (PatternLockView) findViewById(R.id.pattern_lock_view1);
             mPatternLockView2 = (PatternLockView) findViewById(R.id.pattern_lock_view2);
+            background1 = (android.widget.ImageView) findViewById(R.id.background1);
+            background2 = (android.widget.ImageView) findViewById(R.id.background2);
             Button btnOne = (Button) findViewById(R.id.btnSetPattern1);
             Button btnTwo = (Button) findViewById(R.id.btnSetPattern2);
 
@@ -109,6 +135,7 @@ public final class MainActivity extends AppCompatActivity {
             btnTwo.setVisibility(View.GONE);
 
             mPatternLockView2.setVisibility(View.GONE);
+            background2.setVisibility(View.GONE);
 
             mPatternLockView1.addPatternLockListener(new PatternLockViewListener() {
                 @Override
@@ -138,6 +165,7 @@ public final class MainActivity extends AppCompatActivity {
                     Paper.book().write(first_pattern_key,first_pattern);
                     Toast.makeText(MainActivity.this,"Pattern 1 saved",Toast.LENGTH_SHORT).show();
                     mPatternLockView2.setVisibility(View.VISIBLE);
+                    background2.setVisibility(View.VISIBLE);
                 }
             });
 

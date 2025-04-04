@@ -1,0 +1,21 @@
+@startuml
+class com.example.patternlockviewtest2.MainActivity {
+~ PatternLockView mPatternLockView1
+~ PatternLockView mPatternLockView2
+~ ImageView background1
+~ ImageView background2
+~ ImageView help_background1
+~ ImageView help_background2
+~ String first_pattern
+~ String second_pattern
+~ String first_pattern_key
+~ String second_pattern_key
+# void onCreate(Bundle)
+- void deletePattern()
+}
+
+
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.patternlockviewtest2.MainActivity
+@enduml
